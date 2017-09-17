@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!--- Site CSS -->
+    <link rel="stylesheet" type="text/css" href="dist/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/site.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/grid.css">
+
+    <!--- Component CSS -->
+    <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/input.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/button.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/label.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/transition.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/popup.css">
+
+    <!--- Component JS -->
+    <script src="dist/components/jquery-3.2.1.min.js"></script>
+    <script src="../assets/library/iframe-content.js"></script>
+    <script type="text/javascript" src="dist/components/popup.js"></script>
+    <script type="text/javascript" src="dist/components/dropdown.js"></script>
+    <script type="text/javascript" src="dist/components/transition.js"></script>
+
+    <!--- Show Names -->
+    <script src="../assets/show-examples.js"></script>
+
+    <script>
+        $(document)
+            .ready(function() {
+            $('.ui.dropdown')
+                .dropdown({
+                on: 'click'
+                })
+            ;
+            })
+        ;
+    </script>
+
+    <script>
+            function calcularImc(){
+                var altura = $("#altura").val();
+                var peso = $("#peso").val();
+                var sexo = $("#sexo").val();
+                var imc;
+                if (altura > 2.5) {altura = altura / 100}
+
+                if (sexo = "Masculino"){
+                    if ((peso / (altura * altura)) < 20)
+                        {imc = 'Abaixo do peso!'}
+                    else if  ((peso / (altura * altura)) < 25)
+                        {imc = 'Normal!'}   
+                    else if ((peso / (altura * altura)) < 30)
+                        {imc = 'Obesidade leve!'}    
+                    else if ((peso / (altura * altura)) < 40)
+                        {imc = 'Obesidade moderada!'}    
+                    else if ((peso / (altura * altura)) >= 40)
+                        {imc = 'Obesidade grave ou mórbida!'}
+                }
+                else
+                {
+                    if ((peso / (altura * altura)) < 19)
+                        {imc = 'Abaixo do peso!'}
+                    else if  ((peso / (altura * altura)) < 24)
+                        {imc = 'Normal!'}   
+                    else if ((peso / (altura * altura)) < 29)
+                        {imc = 'Obesidade leve!'}    
+                    else if ((peso / (altura * altura)) < 39)
+                        {imc = 'Obesidade moderada!'}    
+                    else if ((peso / (altura * altura)) >= 39)
+                        {imc = 'Obesidade grave ou mórbida!'}
+                }
+
+                $("#campoResultado").val(imc); 
+            }
+
+
+            function iniciar() {
+                $("#result").click(calcularImc);
+            }
+
+        $(document).ready(iniciar);
+    </script>
+    <style type="text/css">
+        body {
+          background-color: #DADADA;
+        }
+        body > .grid {
+          height: 100%;
+        }
+        .image {
+          margin-top: -100px;
+        }
+        .column {
+          max-width: 450px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                <div class="content">
+                Descubra o seu IMC!
+                </div>
+            </h2>
+
+            <div class="ui stacked segment">
+            
+                <div class="ui labeled input">
+                    <a class="ui label">
+                        Peso
+                    </a>
+                    <input id="peso" type="text" placeholder="Insira aqui...">
+                    </div>      
+
+                <div class="ui labeled input">
+                    <a class="ui label">
+                        Altura
+                    </a>
+                    <input id="altura" type="text" placeholder="Insira aqui...">
+                    </div>   
+
+                <div class="ui divider"></div>
+
+                    <div class="ui dropdown label">
+                        <div class="text">Escolha seu Sexo</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                        <div class="item" input id="sexo"='Feminino'>Feminino</div>
+                        <div class="item" input id="sexo"='Masculino'>Masculino</div>
+                        </div>
+                    </div>
+
+                <div class="ui divider"></div>
+
+                <button id="result" class="ui teal button">Resultado</button>
+                
+                    <div class="ui labeled input">
+                    <input id="campoResultado" type="text">
+                </div> 
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+</html>
