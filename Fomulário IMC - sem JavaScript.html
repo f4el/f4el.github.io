@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!--- Site CSS -->
+    <link rel="stylesheet" type="text/css" href="dist/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/site.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/grid.css">
+
+    <!--- Component CSS -->
+    <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/input.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/button.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/label.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/transition.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/popup.css">
+
+  <link rel="stylesheet" type="text/css" href="dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/form.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/message.css">
+
+  <script src="dist/components/form.js"></script>
+  <script src="dist/components/transition.js"></script>
+
+
+    <!--- Component JS -->
+    <script src="dist/components/jquery-3.2.1.min.js"></script>
+    <script src="../assets/library/iframe-content.js"></script>
+    <script type="text/javascript" src="dist/components/popup.js"></script>
+    <script type="text/javascript" src="dist/components/dropdown.js"></script>
+    <script type="text/javascript" src="dist/components/transition.js"></script>
+
+    <!--- Show Names -->
+    <script src="../assets/show-examples.js"></script>
+
+    <script>
+        $(document)
+            .ready(function() {
+            $('.ui.dropdown')
+                .dropdown({
+                on: 'click'
+                })
+            ;
+            })
+        ;
+    </script>
+
+    <%
+                double alturaValor = Double.parseDouble(altura);
+                double pesoValor = Double.parseDouble(peso);
+                String sexoValor = sexo;
+                String imc = "";
+                
+                if (alturaValor > 2.5) {alturaValor = alturaValor / 100;}
+
+                if (sexoValor = "Masculino"){
+                    if ((pesoValor / (alturaValor * alturaValor)) < 20)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está abaixo do peso!";}
+                    else if  ((pesoValor / (alturaValor * alturaValor)) < 25)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com o peso normal!";}   
+                    else if ((pesoValorValor / (alturaValor * alturaValor)) < 30)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade leve!";}    
+                    else if ((pesoValor / (alturaValor * alturaValor)) < 40)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade moderada!";}    
+                    else if ((pesoValor / (alturaValor * alturaValor)) >= 40)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade grave ou mórbida!";}
+                }
+                else
+                {
+                    if ((pesoValor / (alturaValor * alturaValor)) < 19)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está abaixo do peso!";}
+                    else if  ((pesoValor / (alturaValor * alturaValor)) < 24)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com o peso normal!";}   
+                    else if ((pesoValor / (alturaValor * alturaValor)) < 29)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade leve!";}    
+                    else if ((pesoValor / (alturaValor * alturaValor)) < 39)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade moderada!";}    
+                    else if ((pesoValor / (alturaValor * alturaValor)) >= 39)
+                        {imc = "O IMC é:" + (pesoValor / (alturaValor * alturaValor) + ", e mostra que está com obesidade grave ou mórbida!";}
+                }
+    %>
+
+    <script> $("#campoResultado").<% System.out.println(imc); %> </script>
+
+    <style type="text/css">
+        body {
+          background-color: #DADADA;
+        }
+        body > .grid {
+          height: 100%;
+        }
+        .image {
+          margin-top: -100px;
+        }
+        .column {
+          max-width: 450px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                <div class="content">
+                Descubra o seu IMC!
+                </div>
+            </h2>
+
+            <div class="ui stacked segment">
+            
+                <div class="ui labeled input">
+                    <a class="ui label">
+                        Peso
+                    </a>
+                    <input id="peso" type="text" placeholder="Insira aqui...">
+                    </div>      
+
+                <div class="ui labeled input">
+                    <a class="ui label">
+                        Altura
+                    </a>
+                    <input id="altura" type="text" placeholder="Insira aqui...">
+                    </div>   
+
+                <div class="ui divider"></div>
+
+                    <div class="ui dropdown label">
+                        <div class="text">Escolha seu Sexo</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                        <div class="item" input id="sexo"='Feminino'>Feminino</div>
+                        <div class="item" input id="sexo"='Masculino'>Masculino</div>
+                        </div>
+                    </div>
+
+                <div class="ui divider"></div>
+
+                <button id="result" class="ui teal button">Resultado</button>
+                
+                    <div class="ui labeled input">
+                    <input id="campoResultado" type="text">
+                </div> 
+            </div>
+            
+
+        </div>
+    </div>
+
+</body>
+</html>
